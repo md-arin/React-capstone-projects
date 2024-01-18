@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Raleway&display=swap');
+
+
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    color: #293241;
+}
+
+
+.card-body{
+    height: 350px;
+    width: 300px;
+    border: 1px solid;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    margin: 40px;
+  }
+  
+  .upper-section{
+    background-color: #3d5a80;
+    height: 150px;
+  }
+  
+  img {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: 60%;
+    left: 33%;
+    border-radius: 50px;
+    z-index: 1;
+  }
+
+  
+  
+  .mid-section{
+      text-align: center;
+      margin-top: 50px;
+  }
+
+  .low-section{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  
+  .low-section>div{
+    text-align: center;
+  }
+  
+  
