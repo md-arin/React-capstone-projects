@@ -1,0 +1,29 @@
+body{
+  background-color: rgb(84, 80, 80);
+}
+
+.hero{
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.hero>input{
+  height: 40px;
+  width: 20%;
+  
+}
+
+.hero>button{
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 20px;
+  background-color: brown;
+  border-radius: 10px;
+}
+
+button:hover{
+  background-color: white;
+  cursor: pointer;
+}

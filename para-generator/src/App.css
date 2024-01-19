@@ -1,0 +1,32 @@
+input{
+    width: 50%;
+    height: 40px;
+}
+
+button{
+    background-color: black;
+    color: white;
+    padding: 12px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.section{
+    display: flex;
+    justify-content: center;
+    
+}
+
+button:hover{
+        background-color: rgb(232, 223, 223);
+        color: black;
+        cursor: pointer;
+}
+
+.para{
+    display: flex;
+    
+    justify-content: center;
+    margin: 50px;
+   
+}
