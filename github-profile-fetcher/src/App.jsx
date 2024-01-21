@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [hide,setHide] = useState(false);
+  const [count, setCount] = useState(0)
   const [username, setUsername] = useState("");
   const [dp, setDp] = useState('');
   const [name, setName] = useState("");
@@ -15,7 +16,7 @@ function App() {
 
   useEffect(()=>{
      getData();
-  },[username])
+  },[count,setCount])
 
   const getData = async()=>{
     const res = await axios.get("https://api.github.com/users/"+username)
@@ -34,6 +35,7 @@ function App() {
         <input type="text" placeholder='Enter your github Username to fetch data' autoFocus onChange={(e) => setUsername(e.target.value)}/>
         <button onClick={()=>{
           setHide(true);
+          setCount( count + 1)
         }}>Fetch</button>
     </div>
       {hide ? <ProfileCard photo={dp} name={name} bio={bio} followers={followers} following={following} location={location}/> : null}
