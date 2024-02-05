@@ -2,45 +2,37 @@ import ProfileCard from './Components/ProfileCard'
 import  axios  from 'axios'
 import './App.css'
 import { useEffect, useState } from 'react'
+import { RecoilRoot, useRecoilState } from 'recoil';
+import { usernameAtom } from './Components/atoms';
 
 function App() {
+return(
+  <RecoilRoot>
+    <MainApp/>
+  </RecoilRoot>
+)
+}
+
+function MainApp(){
+  console.log("Main app rendered")
+
   const [hide,setHide] = useState(false);
-  const [count, setCount] = useState(0)
-  const [username, setUsername] = useState("");
-  const [dp, setDp] = useState('');
-  const [name, setName] = useState("");
-  const [bio, setBio] = useState("");
-  const [followers, setFollowers] = useState("")
-  const [following, setFollowing] = useState("")
-  const [location, setLocation] = useState("")
+  const [username, setUsername] = useRecoilState(usernameAtom)
+ 
 
-  useEffect(()=>{
-     getData();
-  },[count,setCount])
-
-  const getData = async()=>{
-    const res = await axios.get("https://api.github.com/users/"+username)
-    console.log(res.data)
-    setDp(res.data.avatar_url)
-    setName(res.data.name);
-    setBio(res.data.bio)
-    setFollowers(res.data.followers)
-    setFollowing(res.data.following)
-    setLocation(res.data.location)
-  }
-
-  return (
-    <>
-    <div className='hero' >
-        <input type="text" placeholder='Enter your github Username to fetch data' autoFocus onChange={(e) => setUsername(e.target.value)}/>
-        <button onClick={()=>{
-          setHide(true);
-          setCount( count + 1)
-        }}>Fetch</button>
-    </div>
-      {hide ? <ProfileCard photo={dp} name={name} bio={bio} followers={followers} following={following} location={location}/> : null}
-    </>
-  )
+   return (
+     <>
+     
+     <div className='hero' >
+         <input type="text" placeholder='Enter your github Username to fetch data' autoFocus value={username} onChange={(e) => setUsername(e.target.value)}/>
+         <button onClick={()=>{
+          console.log(username);
+         }}>Fetch</button>
+     </div>
+       {/* {hide ? <ProfileCard photo={dp} name={name} bio={bio} followers={followers} following={following} location={location}/> : null} */}
+       <ProfileCard />
+     </>
+   )
 }
 
 export default App
